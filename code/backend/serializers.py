@@ -5,7 +5,13 @@ class UploadFileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UploadFile
         fields = (
-            'file','user','file_name',
-            'date','upload_date','mail'
+            'id', 'mail', 'file', 'subject', 'content'
         )
 
+
+# class SendEmailSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = SendEmail
+#         fields = (
+#             'id','mail''subject','content'
+#         )

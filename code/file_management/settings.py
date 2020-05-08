@@ -22,6 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '(bhtznd63585u!2m(g$t)=b^m^m+*ao5sw5$*(4a+fx6fn#8i2'
 
+# 设置可跨域范围
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -75,17 +79,6 @@ WSGI_APPLICATION = 'file_management.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'la',#数据库名称
-        'USER':'la',#拥有者，这个一般没修改
-        'PASSWORD':'ladb_5f45sd6af',#密码，自己设定的
-        'HOST':'10.20.253.11',#默认的就没写
-        'PORT':'5432',
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -125,15 +118,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, '_static') #用于WSGI部署
+STATIC_ROOT = os.path.join(BASE_DIR, '_static')  # 用于WSGI部署
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = False   #是否使用TLS安全传输协议(用于在两个通信应用程序之间提供保密性和数据完整性。)
-EMAIL_USE_SSL = False    #是否使用SSL加密，qq企业邮箱要求使用
-EMAIL_HOST = 'smtp.163.com'   #发送邮件的邮箱 的 SMTP服务器，这里用了163邮箱
-EMAIL_PORT = 25     #发件箱的SMTP服务器端口
-EMAIL_HOST_USER = 'la_test@163.com'    #发送邮件的邮箱地址
-EMAIL_HOST_PASSWORD = 'la666666'         #发送邮件的邮箱密码(这里使用的是授权码)
+EMAIL_USE_TLS = False  # 是否使用TLS安全传输协议(用于在两个通信应用程序之间提供保密性和数据完整性。)
+EMAIL_USE_SSL = False  # 是否使用SSL加密，qq企业邮箱要求使用
+EMAIL_HOST = 'smtp.163.com'  # 发送邮件的邮箱 的 SMTP服务器，这里用了163邮箱
+EMAIL_PORT = 25  # 发件箱的SMTP服务器端口
+EMAIL_HOST_USER = 'la_test@163.com'  # 发送邮件的邮箱地址
+EMAIL_HOST_PASSWORD = 'la666666'  # 发送邮件的邮箱密码(这里使用的是授权码)
 
 LOGIN_REDIRECT_URL = '/accounts/home/'  # the url that enter after login
 
